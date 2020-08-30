@@ -1,12 +1,10 @@
 <?php
+
 /**
- * Helper class to easily and safely work with cookies
- *
- * @version     1.0.0
- * @link        https://github.com/bayfrontmedia/php-cookies
- * @license     MIT https://opensource.org/licenses/MIT
- * @copyright   2020 Bayfront Media https://www.bayfrontmedia.com
- * @author      John Robinson <john@bayfrontmedia.com>
+ * @package php-cookies
+ * @link https://github.com/bayfrontmedia/php-cookies
+ * @author John Robinson <john@bayfrontmedia.com>
+ * @copyright 2020 Bayfront Media
  */
 
 namespace Bayfront\Cookies;
@@ -15,9 +13,9 @@ class Cookie
 {
 
     /**
-     * Returns value of single $_COOKIE array key or entire array, with optional default value
+     * Returns value of single $_COOKIE array key or entire array, with optional default value.
      *
-     * @param string $key
+     * @param string|null $key
      * @param mixed $default (Default value to return if the array key is not found)
      *
      * @return mixed
@@ -45,7 +43,7 @@ class Cookie
     }
 
     /**
-     * Checks if $_COOKIE array key exists
+     * Checks if $_COOKIE array key exists.
      *
      * @param string $key
      *
@@ -58,7 +56,7 @@ class Cookie
     }
 
     /**
-     * Creates a cookie
+     * Creates a cookie.
      *
      * @param string $name (Cookie name)
      * @param string $value (Cookie value)
@@ -105,7 +103,7 @@ class Cookie
     }
 
     /**
-     * Removes validity of cookie
+     * Removes validity of cookie.
      *
      * @param string $name
      *
@@ -122,7 +120,7 @@ class Cookie
     }
 
     /**
-     * Removes the validity of all cookies
+     * Removes the validity of all cookies.
      *
      * @return void
      */

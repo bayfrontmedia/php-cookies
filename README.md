@@ -18,7 +18,7 @@ John Robinson, [Bayfront Media](https://www.bayfrontmedia.com)
 
 ## Requirements
 
-* PHP > 7.1.0
+* PHP >= 7.1.0
 
 ## Installation
 
@@ -44,7 +44,7 @@ Returns value of single `$_COOKIE` array key or entire array, with optional defa
 
 **Parameters:**
 
-- `$key = NULL` (string)
+- `$key = NULL` (string|null)
 - `$default = NULL` (mixed): Default value to return if the array key is not found
 
 **Returns:**

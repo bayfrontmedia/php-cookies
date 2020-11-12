@@ -3,7 +3,6 @@
   "description": "Helper class to easily work with cookies.",
   "homepage": "https://github.com/bayfrontmedia/php-cookies",
   "license" : "MIT",
-  "version": "1.0.0",
   "type": "library",
   "keywords": [
     "php",

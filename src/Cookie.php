@@ -65,11 +65,12 @@ class Cookie
      * @param string $domain (Domain/subdomain that the cookie is available to)
      * @param bool $secure (Transmit the cookie only over a secure https connection)
      * @param bool $http_only (Accessible only through the http protocol)
+     * @param string $same_site (Acceptable values of None, Lax or Strict)
      *
      * @return bool
      */
 
-    public static function set(string $name, string $value, int $minutes = 0, string $path = '/', string $domain = '', bool $secure = true, bool $http_only = true): bool
+    public static function set(string $name, string $value, int $minutes = 0, string $path = '/', string $domain = '', bool $secure = true, bool $http_only = true, string $same_site = 'Lax'): bool
     {
 
         // < 0 = Delete, 0 = Expire at end of session, > 0 = Minutes from now
@@ -88,7 +89,14 @@ class Cookie
 
         }
 
-        $set = setcookie($name, $value, $time, $path, $domain, $secure, $http_only);
+        $set = setcookie($name, $value, [
+            'expires' => $time,
+            'path' => $path,
+            'domain' => $domain,
+            'secure' => $secure,
+            'httponly' => $http_only,
+            'samesite' => $same_site
+        ]);
 
         if ($set) {
 

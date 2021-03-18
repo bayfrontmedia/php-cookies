@@ -104,6 +104,7 @@ See: [https://www.php.net/manual/en/function.setcookie.php](https://www.php.net/
 - `$domain = ''` (string): Domain/subdomain that the cookie is available to
 - `$secure = true` (bool): Transmit the cookie only over a secure https connection
 - `$http_only = true` (bool): Accessible only through the http protocol
+- `$same_site = 'Lax'` (string): Acceptable values of `None`, `Lax` or `Strict`
 
 **Returns:**
 

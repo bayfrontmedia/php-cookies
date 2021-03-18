@@ -72,15 +72,15 @@ class Cookie
     public static function set(string $name, string $value, int $minutes = 0, string $path = '/', string $domain = '', bool $secure = true, bool $http_only = true): bool
     {
 
-        // -1 = Delete, 0 = Expire at end of session, > 0 = Minutes from now
+        // < 0 = Delete, 0 = Expire at end of session, > 0 = Minutes from now
 
         if ($minutes < 0) {
 
-            $time = 1;
+            $time = time() - 3600;
 
         } else if ($minutes == 0) {
 
-            $time = 0;
+            $time = time();
 
         } else {
 
@@ -113,7 +113,7 @@ class Cookie
     public static function forget(string $name): void
     {
 
-        self::set($name, false, -1); // Expire in browser
+        self::set($name, '', -1, '/'); // Expire in browser
 
         unset($_COOKIE[$name]); // Remove from script
 

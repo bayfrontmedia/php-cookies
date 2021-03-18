@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities
 
+## [1.0.1] - 2021.03.18
+
+### Fixed
+
+- Fixed bug in `forget` method where cookies were not being invalidated/removed due to path constraints.
+
 ## [1.0.0] - 2020.07.27
 
 ### Added

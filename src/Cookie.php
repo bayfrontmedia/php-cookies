@@ -1,12 +1,5 @@
 <?php
 
-/**
- * @package php-cookies
- * @link https://github.com/bayfrontmedia/php-cookies
- * @author John Robinson <john@bayfrontmedia.com>
- * @copyright 2020 Bayfront Media
- */
-
 namespace Bayfront\Cookies;
 
 class Cookie
@@ -16,12 +9,12 @@ class Cookie
      * Returns value of single $_COOKIE array key or entire array, with optional default value.
      *
      * @param string|null $key
-     * @param mixed $default (Default value to return if the array key is not found)
+     * @param mixed|null $default (Default value to return if the array key is not found)
      *
      * @return mixed
      */
 
-    public static function get(string $key = NULL, $default = NULL)
+    public static function get(string $key = NULL, mixed $default = NULL): mixed
     {
 
         if (NULL === $key) { // Return the entire array
@@ -52,7 +45,7 @@ class Cookie
 
     public static function has(string $key): bool
     {
-        return (self::get($key)) ? true : false;
+        return (bool)self::get($key);
     }
 
     /**
@@ -121,7 +114,7 @@ class Cookie
     public static function forget(string $name): void
     {
 
-        self::set($name, '', -1, '/'); // Expire in browser
+        self::set($name, '', -1); // Expire in browser
 
         unset($_COOKIE[$name]); // Remove from script
 

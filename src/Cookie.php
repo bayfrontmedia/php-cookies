@@ -14,7 +14,7 @@ class Cookie
      * @return mixed
      */
 
-    public static function get(string $key = NULL, mixed $default = NULL): mixed
+    public static function get(?string $key = NULL, mixed $default = NULL): mixed
     {
 
         if (NULL === $key) { // Return the entire array

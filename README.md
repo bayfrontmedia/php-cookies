@@ -132,6 +132,7 @@ Removes validity of cookie.
 **Parameters:**
 
 - `$name` (string)
+- `$path = '/'` (string): Path on the server for the cookie to be removed
 
 **Returns:**
 

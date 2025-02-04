@@ -10,10 +10,8 @@ class Cookie
      *
      * @param string|null $key
      * @param mixed|null $default (Default value to return if the array key is not found)
-     *
      * @return mixed
      */
-
     public static function get(?string $key = NULL, mixed $default = NULL): mixed
     {
 
@@ -39,10 +37,8 @@ class Cookie
      * Checks if $_COOKIE array key exists.
      *
      * @param string $key
-     *
      * @return bool
      */
-
     public static function has(string $key): bool
     {
         return (bool)self::get($key);
@@ -59,10 +55,8 @@ class Cookie
      * @param bool $secure (Transmit the cookie only over a secure https connection)
      * @param bool $http_only (Accessible only through the http protocol)
      * @param string $same_site (Acceptable values of None, Lax or Strict)
-     *
      * @return bool
      */
-
     public static function set(string $name, string $value, int $minutes = 0, string $path = '/', string $domain = '', bool $secure = true, bool $http_only = true, string $same_site = 'Lax'): bool
     {
 
@@ -107,17 +101,13 @@ class Cookie
      * Removes validity of cookie.
      *
      * @param string $name
-     *
+     * @param string $path (Path on the server for the cookie to be removed)
      * @return void
      */
-
-    public static function forget(string $name): void
+    public static function forget(string $name, string $path = '/'): void
     {
-
-        self::set($name, '', -1); // Expire in browser
-
+        self::set($name, '', -1, $path); // Expire in browser
         unset($_COOKIE[$name]); // Remove from script
-
     }
 
     /**
@@ -125,7 +115,6 @@ class Cookie
      *
      * @return void
      */
-
     public static function forgetAll(): void
     {
 
@@ -134,9 +123,7 @@ class Cookie
         if (is_array($cookies)) {
 
             foreach ($cookies as $cookie) {
-
                 self::forget($cookie);
-
             }
 
         }

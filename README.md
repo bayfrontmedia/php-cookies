@@ -133,6 +133,10 @@ Removes validity of cookie.
 
 - `$name` (string)
 - `$path = '/'` (string): Path on the server for the cookie to be removed
+- `$domain = ''` (string): Same value that the cookie was set with
+- `$secure = true` (bool): Same value that the cookie was set with
+- `$http_only = true` (bool): Same value that the cookie was set with
+- `$same_site = 'Lax'` (string): Same value that the cookie was set with. Acceptable values of `None`, `Lax` or `Strict`
 
 **Returns:**
 
@@ -153,6 +157,8 @@ Cookie::forget('cart_id');
 **Description:**
 
 Removes the validity of all cookies.
+
+NOTE: This will not delete cookies set with custom path, domain, secure, http_only or same_site.
 
 **Parameters:**
 

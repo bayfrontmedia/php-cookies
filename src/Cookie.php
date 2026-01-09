@@ -102,16 +102,22 @@ class Cookie
      *
      * @param string $name
      * @param string $path (Path on the server for the cookie to be removed)
+     * @param string $domain
+     * @param bool $secure
+     * @param bool $http_only
+     * @param string $same_site
      * @return void
      */
-    public static function forget(string $name, string $path = '/'): void
+    public static function forget(string $name, string $path = '/', string $domain = '', bool $secure = true, bool $http_only = true, string $same_site = 'Lax'): void
     {
-        self::set($name, '', -1, $path); // Expire in browser
+        self::set($name, '', -60, $path, $domain, $secure, $http_only, $same_site); // Expire in browser
         unset($_COOKIE[$name]); // Remove from script
     }
 
     /**
      * Removes the validity of all cookies.
+     *
+     * NOTE: This will not delete cookies set with custom path, domain, secure, http_only or same_site.
      *
      * @return void
      */
